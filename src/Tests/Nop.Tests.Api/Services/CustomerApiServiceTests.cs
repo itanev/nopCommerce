@@ -1,10 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using AutoMapper;
 using Nop.Core.Data;
-using Nop.Core.Domain.Common;
 using Nop.Core.Domain.Customers;
-using Nop.Plugin.Api.DTOs.Customers;
 using Nop.Plugin.Api.Services;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -20,65 +17,21 @@ namespace Nop.Tests.Api.Services
         public new void SetUp()
         {
             var customerRepository = MockRepository.GenerateMock<IRepository<Customer>>();
-            var genericAttributeRepository = MockRepository.GenerateMock<IRepository<GenericAttribute>>();
 
             customerRepository.Expect(x => x.Table).Return((new List<Customer>()
             {
                 new Customer()
                 {
-                    Id = 1,
                     Email = "test@customer1.com"
                 },
                 new Customer()
                 {
-                    Id = 2,
                     Email = "test@customer2.com"
                 }
 
             }).AsQueryable());
 
-            genericAttributeRepository.Expect(x => x.Table).Return((new List<GenericAttribute>()
-            {
-                new GenericAttribute()
-                {
-                    Id = 1,
-                    KeyGroup = "Customer",
-                    Key = "FirstName",
-                    Value = "first name 1",
-                    EntityId = 1
-                },
-                new GenericAttribute()
-                {
-                    Id = 2,
-                    KeyGroup = "Customer",
-                    Key = "LastName",
-                    Value = "last name 1",
-                    EntityId = 1
-                },
-
-                new GenericAttribute()
-                {
-                    Id = 3,
-                    KeyGroup = "Customer",
-                    Key = "FirstName",
-                    Value = "first name 2",
-                    EntityId = 2
-                },
-                new GenericAttribute()
-                {
-                    Id = 3,
-                    KeyGroup = "Customer",
-                    Key = "LastName",
-                    Value = "last name 2",
-                    EntityId = 2
-                }
-
-            }).AsQueryable());
-
-            _customerApiService = new CustomerApiService(customerRepository, genericAttributeRepository);
-
-            // Needed because the tests don't invoke the dependency register and the type maps are never registered.
-            Mapper.CreateMap<Customer, CustomerDto>();
+            _customerApiService = new CustomerApiService(customerRepository);
         }
 
         [Test]

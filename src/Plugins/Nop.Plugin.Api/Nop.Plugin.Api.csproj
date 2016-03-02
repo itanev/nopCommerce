@@ -114,14 +114,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\NopBearerTokenAuthorizeAttribute.cs" />
-    <Compile Include="ContractResolvers\DynamicContractResolver.cs" />
     <Compile Include="Controllers\ApiAdminController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\ManageClientsAdminController.cs" />
     <Compile Include="Controllers\OAuthController.cs" />
     <Compile Include="DataMappings\ClientMap.cs" />
-    <Compile Include="DataStructures\ApiList.cs" />
     <Compile Include="Data\ApiObjectContext.cs" />
     <Compile Include="Domain\ApiSettings.cs" />
     <Compile Include="Domain\Client.cs" />
@@ -135,21 +132,11 @@
     <Compile Include="DTOs\Customers\OrderCustomerDto.cs" />
     <Compile Include="DTOs\ProductDto.cs" />
     <Compile Include="DTOs\ShoppingCartItemDto.cs" />
-    <Compile Include="Helpers\AuthorizationHelper.cs" />
-    <Compile Include="Helpers\IAuthorizationHelper.cs" />
-    <Compile Include="Helpers\ReflectionHelper.cs" />
     <Compile Include="Infrastructure\DependencyRegister.cs" />
     <Compile Include="MappingExtensions\ClientMappings.cs" />
     <Compile Include="MappingExtensions\ConfigurationMappings.cs" />
-    <Compile Include="MappingExtensions\CustomerDtoMappings.cs" />
-    <Compile Include="ModelBinders\ParametersModelBinder.cs" />
     <Compile Include="Models\ClientModel.cs" />
     <Compile Include="Models\ConfigurationModel.cs" />
-    <Compile Include="Models\CustomersParameters\BaseParametersModel.cs" />
-    <Compile Include="Models\CustomersParameters\BaseParametersModelWithPaging.cs" />
-    <Compile Include="Models\CustomersParameters\CustomerParametersModel.cs" />
-    <Compile Include="Models\CustomersParameters\CustomersParametersModel.cs" />
-    <Compile Include="Models\CustomersParameters\CustomersSearchParametersModel.cs" />
     <Compile Include="MVC\Configurations.cs" />
     <Compile Include="MVC\PluginNames.cs" />
     <Compile Include="MVC\ViewNames.cs" />
@@ -231,9 +218,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Enums\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
