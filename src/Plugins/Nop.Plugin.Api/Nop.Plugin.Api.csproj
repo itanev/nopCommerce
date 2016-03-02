@@ -135,8 +135,14 @@
     <Compile Include="Infrastructure\DependencyRegister.cs" />
     <Compile Include="MappingExtensions\ClientMappings.cs" />
     <Compile Include="MappingExtensions\ConfigurationMappings.cs" />
+    <Compile Include="ModelBinders\ParametersModelBinder.cs" />
     <Compile Include="Models\ClientModel.cs" />
     <Compile Include="Models\ConfigurationModel.cs" />
+    <Compile Include="Models\CustomersParameters\BaseParametersModel.cs" />
+    <Compile Include="Models\CustomersParameters\BaseParametersModelWithPaging.cs" />
+    <Compile Include="Models\CustomersParameters\CustomerParametersModel.cs" />
+    <Compile Include="Models\CustomersParameters\CustomersParametersModel.cs" />
+    <Compile Include="Models\CustomersParameters\CustomersSearchParametersModel.cs" />
     <Compile Include="MVC\Configurations.cs" />
     <Compile Include="MVC\PluginNames.cs" />
     <Compile Include="MVC\ViewNames.cs" />
