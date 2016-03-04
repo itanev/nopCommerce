@@ -1,9 +1,9 @@
 @{
-    Layout = ViewNames.AdminLayout;
+    Layout = ViewNames.ViewAdminLayout;
 }
 
-@using Nop.Plugin.Api.Constants
 @using Nop.Plugin.Api.Models
+@using Nop.Plugin.Api.MVC
 
 @model ClientModel
 
@@ -23,5 +23,5 @@
         </div>
     </div>
     
-    @Html.Partial(ViewNames.AdminApiClientsCreateOrUpdate, Model)
+    @Html.Partial(ViewNames.ViewAdminApiClientsCreateOrUpdate, Model)
 }

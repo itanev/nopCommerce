@@ -9,6 +9,7 @@ using Nop.Data;
 using Nop.Plugin.Api.Data;
 using Nop.Plugin.Api.Domain;
 using Nop.Plugin.Api.Models;
+using Nop.Plugin.Api.MVC;
 using Nop.Plugin.Api.Services;
 using Nop.Web.Framework.Mvc;
 
@@ -16,15 +17,13 @@ namespace Nop.Plugin.Api.Infrastructure
 {
     public class DependencyRegister : IDependencyRegistrar
     {
-        private const string ObjectContextName = "nop_object_context_web_api";
-
         public void Register(ContainerBuilder builder, ITypeFinder typeFinder, NopConfig config)
         {
-            this.RegisterPluginDataContext<ApiObjectContext>(builder, ObjectContextName);
+            this.RegisterPluginDataContext<ApiObjectContext>(builder, PluginNames.ObjectContextName);
 
             builder.RegisterType<EfRepository<Client>>()
                .As<IRepository<Client>>()
-               .WithParameter(ResolvedParameter.ForNamed<IDbContext>(ObjectContextName))
+               .WithParameter(ResolvedParameter.ForNamed<IDbContext>(PluginNames.ObjectContextName))
                .InstancePerLifetimeScope();
 
             CreateModelMappings();
@@ -46,6 +45,8 @@ namespace Nop.Plugin.Api.Infrastructure
             builder.RegisterType<ClientService>().As<IClientService>().InstancePerLifetimeScope();
         }
 
-        public int Order { get; }
+        public int Order {
+            get { return 1; } 
+        }
     }
 }

@@ -1,10 +1,10 @@
 ﻿using System.Web.Mvc;
 using Nop.Admin.Controllers;
 using Nop.Core;
-using Nop.Plugin.Api.Constants;
 using Nop.Plugin.Api.Domain;
 using Nop.Plugin.Api.MappingExtensions;
 using Nop.Plugin.Api.Models;
+using Nop.Plugin.Api.MVC;
 using Nop.Services.Configuration;
 using Nop.Services.Localization;
 using Nop.Services.Logging;
@@ -54,7 +54,7 @@ namespace Nop.Plugin.Api.Controllers
             //now clear settings cache
             _settingService.ClearCache();
 
-            return View(ViewNames.AdminApiSettings, model);
+            return View(ViewNames.ViewAdminApiSettings, model);
         }
 
         [HttpPost]
@@ -79,7 +79,7 @@ namespace Nop.Plugin.Api.Controllers
 
             SuccessNotification(_localizationService.GetResource("Admin.Plugins.Saved"));
 
-            return View(ViewNames.AdminApiSettings, configurationModel);
+            return View(ViewNames.ViewAdminApiSettings, configurationModel);
         }
     }
 }

@@ -1,11 +1,14 @@
-﻿@using Nop.Plugin.Api.Constants
-@using Nop.Web.Framework.UI
+﻿@using Nop.Web.Framework.UI
 @using Nop.Plugin.Api.Models
+@using Nop.Plugin.Api.MVC
 
 @model ClientModel
 
 <div class="adminGroup">
+    <div class="controlTitle">
+        <a class="toggleControl">@T("Plugins.Api.Admin.Settings.GeneralSettingsTitle")</a>
+    </div>
     <div id="adminGroupPanel1" class="adminGroupPanel">
-        @Html.Partial(ViewNames.AdminApiClientsSettings, Model)
+        @Html.Partial(ViewNames.ViewAdminApiClientsSettings, Model)
     </div>
 </div>
